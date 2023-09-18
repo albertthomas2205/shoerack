@@ -8,13 +8,13 @@ from django.contrib.sessions.models import Session
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    return render(request,'indexx.html')
 
 
 
 def register(request):
     if request.user.is_authenticated:
-            return redirect('index')
+            return redirect('indexx.html')
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -77,8 +77,9 @@ def loginn(request):
         password=request.POST.get('password')
         user=authenticate(request, email=email,password=password)
         if user is not None:
+            print('haiiiii')
             custom_user_manager = CustomUserManager()
-            custom_user_manager.send_otp_email(request,email)
+            custom_user_manager.send_otp_emailll(request,email)
             login(request,user)
             return redirect('otp')
         else:
@@ -103,3 +104,6 @@ def otpp(request):
             return redirect('otp')
   
     return render(request,'otp.html')
+
+def shop(request):
+    return render(request,'shop.html')

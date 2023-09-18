@@ -42,6 +42,7 @@ class CustomUserManager(BaseUserManager):
         message = f'Your OTP for verification: {otp}'
         request.session['gmail'] = email
         request.session['otp'] = otp
+        request.session.save()
 
         send_mail(
             'OTP Verification',

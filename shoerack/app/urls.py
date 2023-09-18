@@ -9,4 +9,6 @@ urlpatterns = [
     path('register',views.register,name = 'register'),
     path('signout',views.signout,name = 'signout'),
     path('otp',views.otpp,name ='otp'),
+    path('shop',views.shop,name = 'shop')
+    
 ]

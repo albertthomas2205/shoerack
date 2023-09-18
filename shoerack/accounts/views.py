@@ -7,37 +7,25 @@ from app.models import CustomUser
 
 
 
-# Create your views here.
 
-# def adminsignup(request):
-#     if request.method == 'POST':
-#         name = request.POST['name']
-#         email = request.POST['email']
-#         phone_number = request.POST['phone_number']
-#         pass1 = request.POST['pass1']
-#         pass2 = request.POST['pass2']
-        
-#         if pass1 == pass2 and len(pass1) > 4 and pass1 != name:
-#             if CustomUser.objects.filter(email=email).exists():
-#                 # messages.error(request, "Email already exists")
-#                 return redirect('account')
-            
-#             # Create the user
-#             user = CustomUser.objects.create_superuser(name=name, email=email,phone_number=phone_number,password = pass1)
-#             user.save()
-            
-            
-#             return redirect('signin')
-        
-#         else:
-#             messages.error(request, "Invalid credentials")
-#             return redirect('account')
-    
-#     return render(request, 'account/signup.html')
 
-   
+from django.contrib import admin
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth import get_user_model
+
+
+
+
 def signinn(request):
     return render(request,'account/signin.html')
+
+def user(request):
+    data = CustomUser.objects.all()
+    context={"data":data}
+    return render(request,'html/sample-page.html',context)
+    
 
 def signin(request):
     # if request.user.is_authenticated:
@@ -57,5 +45,22 @@ def signin(request):
 
     
 def adminhome(request):
-    return render(request,'account/adminhome.html')
+    return render(request,'html/index.html')
 
+
+def block_user_view(request,id):
+   
+    if request.method == 'POST':
+       
+            
+        user = CustomUser.objects.get(id=id)
+        if user.is_active:
+            
+            user.is_active = False
+        else:
+            user.is_active=True
+        user.save()
+    # action = 'blocked' if not user.is_active else 'unblocked'
+    # messages.success(request, f"{user.username} has been {action}.")
+    # return render('html/sigle-page.html')
+    return redirect('user')

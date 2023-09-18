@@ -1,1 +1,211 @@
-<h5> haiiii home</h5>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'admin_static/images/logos/favicon.png' %}" />
+    <link rel="stylesheet" href="{% static 'admin_static/css/styles.min.css' %}" />
+</head>
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div>
+                <div class="brand-logo d-flex align-items-center justify-content-between">
+                  <a href="{% url 'adminpanel:admin_dashboard' %}" class="text-nowrap logo-img">
+                    <img src="{% static 'admin_static/images/logos/dark-logo.svg' %}" width="180" alt="" />
+                  </a>
+                  <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                    <i class="ti ti-x fs-8"></i>
+                  </div>
+                </div>
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                  <ul id="sidebarnav">
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">Home</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="{% url 'adminpanel:admin_dashboard' %}" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-layout-dashboard"></i>
+                        </span>
+                        <span class="hide-menu">Dashboard</span>
+                      </a>
+                    </li>
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">PRODUCT MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="{% url 'adminpanel:product_list' %}" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Products</span>
+                      </a>
+                    </li>
+                    
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">CATEGORY MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="{% url 'adminpanel:category_list' %}" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-login"></i>
+                        </span>
+                        <span class="hide-menu">Categories</span>
+                      </a>
+                    </li>
+                    
+        
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">USER MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="{% url 'adminpanel:user_list' %}" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-user"></i>
+                        </span>
+                        <span class="hide-menu">User List</span>
+                      </a>
+                    </li>
+        
+                    
+        
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">ORDER MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-mood-happy"></i>
+                        </span>
+                        <span class="hide-menu">Order Status</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">BRAND MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="{% url 'adminpanel:brand_list' %}" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-user"></i>
+                        </span>
+                        <span class="hide-menu">Brands</span>
+                      </a>
+                    </li>
+        
+        
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">OFFER AND COUPONS</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-mood-happy"></i>
+                        </span>
+                        <span class="hide-menu">Coupons</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-mood-happy"></i>
+                        </span>
+                        <span class="hide-menu">Category Offers</span>
+                      </a>
+                    </li>
+        
+        
+                    <li class="nav-small-cap">
+                      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                      <span class="hide-menu">BANNER MANAGEMENT</span>
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-mood-happy"></i>
+                        </span>
+                        <span class="hide-menu">Banners</span>
+                      </a>
+                    </li>
+        
+        
+                    <li class="sidebar-item">
+                      <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                        <span>
+                          <i class="ti ti-aperture"></i>
+                        </span>
+                        <span class="hide-menu">Sample Page</span>
+                      </a>
+                    </li>
+                  </ul>
+                  
+                </nav>
+                <!-- End Sidebar navigation -->
+              </div>
+            <!-- ... Rest of your sidebar content ... -->
+
+        </aside>
+        <!--  Sidebar End -->
+
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <!-- ... Rest of your header content ... -->
+            <header class="app-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                  <ul class="navbar-nav">
+                    <li class="nav-item d-block d-xl-none">
+                      <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                        <i class="ti ti-menu-2"></i>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+                    <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                      
+                      <li class="nav-item dropdown">
+                        <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          <img src="{% static 'admin_static/images/profile/user-1.jpg' %}" alt="" width="35" height="35" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                          <div class="message-body">
+                            <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                              <i class="ti ti-user fs-6"></i>
+                              <p class="mb-0 fs-3">My Profile</p>
+                            </a>
+                            
+                            <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </header>
+
+        </div>
+
+        <div class="body-wrapper">
+            <!-- Content specific to each page will be inserted here -->
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+</body>
+</html>
